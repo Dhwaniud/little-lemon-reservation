@@ -3,7 +3,9 @@
     --yellow: #f4ce14;
     --yellow-2: #ffe97b;
     --orange: #ee9972;
-    --gray: #333;
+    --gray-1: #edefee;
+    --gray-2: #d9d9d9;
+    --gray-3: #333;
 }
 
 body {
@@ -14,9 +16,9 @@ body {
 }
 
 h1,
+h3,
 h4 {
     font-family: "Markazi Text", "Times New Roman", Times, serif;
-    /* font-weight: 300; */
 }
 
 ul {
@@ -65,7 +67,7 @@ button.btn {
 }
 
 .bg-gray {
-    background-color: #edefee;
+    background-color: var(--gray-1);
 }
 
 nav ul {
@@ -246,7 +248,56 @@ nav ul li {
     color: var(--gray);
 }
 
+/* About us styles */
+.about {
+    padding: 3rem 0;
+}
+
+.about .container {
+    gap: 20px;
+}
+
+.about .container > * {
+    flex: 1;
+}
+
+.about h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: var(--green);
+}
+
+.about h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--green);
+}
+
+.about .image-cascade {
+    position: relative;
+}
+
+.about .image-cascade img {
+    position: absolute;
+    width: 280px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.about #img-1 {
+    bottom: 0;
+}
+
+.about #img-2 {
+    right: 0;
+}
+
 /* Footer styles */
+footer {
+    background: var(--gray-2);
+}
+
 footer .container {
     justify-content: space-between;
     padding: 1rem 0;

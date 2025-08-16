@@ -2,7 +2,7 @@ import Logo from "../assets/footer-logo.png";
 
 function Footer() {
     return (
-        <footer className="bg-gray">
+        <footer>
             <div className="container">
                 <img src={Logo} alt="Footer logo" />
                 <div>
