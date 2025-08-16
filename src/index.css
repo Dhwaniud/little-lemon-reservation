@@ -3,6 +3,7 @@
     --yellow: #f4ce14;
     --yellow-2: #ffe97b;
     --orange: #ee9972;
+    --gray: #333;
 }
 
 body {
@@ -144,15 +145,15 @@ nav ul li {
 .card {
     width: 280px;
     background-color: white;
-    border-radius: 18px;
+    border-radius: 16px;
 }
 
 .card .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
 }
 
 .card .card-body {
@@ -180,6 +181,7 @@ nav ul li {
 
 .card .card-description {
     height: 90px;
+    color: var(--gray);
 }
 
 .card .card-action {
@@ -191,6 +193,57 @@ nav ul li {
 .card .card-action img {
     padding-left: 2px;
     width: 1rem;
+}
+
+/* Testimonials styling */
+.testimonials {
+    background: var(--yellow);
+    padding: 2rem 0 4rem;
+}
+
+.testimonials h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.testimonials .content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Review card styles */
+.review-card {
+    background: white;
+    width: 180px;
+    height: 200px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.review-card .review-rating {
+    display: inline-flex;
+    margin-bottom: 2px;
+}
+
+.review-card .review-rating img {
+    width: 20px;
+}
+
+.review-card .review-person {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.review-card .review-person img {
+    width: 70px;
+    margin-right: 8px;
+}
+
+.review-card .review-comment {
+    color: var(--gray);
 }
 
 /* Footer styles */
