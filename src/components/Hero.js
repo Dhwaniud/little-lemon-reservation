@@ -1,4 +1,4 @@
-import FoodPlatter from "../assets/foodplatter.jpg";
+import FoodPlatter from "../assets/food-platter.jpg";
 
 function Hero() {
     return (

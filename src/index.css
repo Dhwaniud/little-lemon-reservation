@@ -55,8 +55,12 @@ button.btn {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    max-width: 1140px;
+    max-width: 900px;
     display: flex;
+}
+
+.container.column {
+    flex-direction: column;
 }
 
 .bg-gray {
@@ -112,6 +116,44 @@ nav ul li {
     position: absolute;
     right: 0;
     top: 30px;
+}
+
+/* Specials styles */
+.specials {
+    padding-top: 60px;
+}
+
+.specials .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.specials h1 {
+    font-size: 2.25rem;
+    margin: 0;
+}
+
+.specials section {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.card {
+    width: 220px;
+}
+
+.card .card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.card .card-body {
+    padding: 8px;
 }
 
 /* Footer styles */
