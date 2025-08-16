@@ -1,5 +1,5 @@
 import Hero from "./Hero";
-import Specials from "./Specials";
+import Specials from "./Specials/Specials";
 import Testimonials from "./Testimonials";
 
 function Main() {
