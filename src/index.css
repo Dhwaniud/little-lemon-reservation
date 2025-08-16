@@ -159,6 +159,29 @@ nav ul li {
     padding: 12px;
 }
 
+.card .card-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.card .card-title .text-left {
+    font-size: 1.25rem;
+}
+
+.card .card-title img {
+    height: 0.8rem;
+    margin-left: 4px;
+}
+.card .card-title .text-right {
+    color: var(--orange);
+    font-size: 1.25rem;
+}
+
+.card .card-description {
+    height: 90px;
+}
+
 .card .card-action {
     font-size: 0.8rem;
     display: flex;
