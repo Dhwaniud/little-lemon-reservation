@@ -308,6 +308,26 @@ nav ul li {
     font-size: 2rem;
 }
 
+.reservations form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reservations form label {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.reservations form input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--gray-2);
+    border-radius: 16px;
+}
+
 /* Footer styles */
 footer {
     background: var(--gray-2);
