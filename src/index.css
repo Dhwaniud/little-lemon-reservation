@@ -293,6 +293,21 @@ nav ul li {
     right: 0;
 }
 
+/* Reservations styles */
+.reservations {
+    background-color: var(--yellow-2);
+    color: var(--green);
+    padding: 2rem 0;
+}
+
+.reservations .container {
+    align-items: center;
+}
+
+.reservations h1 {
+    font-size: 2rem;
+}
+
 /* Footer styles */
 footer {
     background: var(--gray-2);
