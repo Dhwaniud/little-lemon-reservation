@@ -1,16 +1,27 @@
+import { useLocation } from "react-router-dom";
 import FoodPlatter from "../assets/food-platter.jpg";
 
 function Hero() {
+    const location = useLocation();
+
     return (
         <section className="hero">
             <div className="container">
                 <article>
                     <h1>Little Lemon</h1>
                     <h3>Chicago</h3>
-                    <p>We are a family owned Mediterrainian restraurant, focused on traditional recipes served with a modern twist.</p>
-                    <button className="btn btn-primary">Reserve a Table</button>
+                    <p>
+                        We are a family owned Mediterrainian restraurant,
+                        focused on traditional recipes served with a modern
+                        twist.
+                    </p>
+                    {location.pathname !== "/booking" && (
+                        <button className="btn btn-primary">
+                            Reserve a Table
+                        </button>
+                    )}
                 </article>
-                <img src={FoodPlatter} alt="Food on a platter"/>
+                <img src={FoodPlatter} alt="Food on a platter" />
             </div>
         </section>
     );
