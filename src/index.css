@@ -321,11 +321,21 @@ nav ul li {
     align-items: center;
 }
 
-.reservations form input {
-    width: 100%;
+.reservations form input,
+.reservations form select {
     padding: 0.8rem;
     border: 1px solid var(--gray-2);
     border-radius: 16px;
+}
+
+.reservations form .no-of-people {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reservations form .no-of-people input {
+    flex: 0.5;
 }
 
 /* Footer styles */
