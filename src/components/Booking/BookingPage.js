@@ -1,13 +1,14 @@
 import Footer from "../Footer";
 import Header from "../Header";
 import Hero from "../Hero";
+import Main from "../Main";
 import BookingForm from "./BookingForm";
 
 function BookingPage() {
     return (
         <>
             <Header />
-            <main>
+            <Main>
                 <Hero />
                 <section className="reservations">
                     <div className="container column">
@@ -15,7 +16,7 @@ function BookingPage() {
                         <BookingForm />
                     </div>
                 </section>
-            </main>
+            </Main>
             <Footer />
         </>
     );
