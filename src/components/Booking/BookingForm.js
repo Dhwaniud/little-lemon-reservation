@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 
+const getDate = (monthsToAdd = 0) => {
+    const date = new Date();
+    date.setMonth(date.getMonth() + monthsToAdd);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+};
+
 function BookingForm({ availableTimes, setAvailableTimes }) {
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         numberOfPeople: "",
         childSeat: false,
-        date: "",
+        date: getDate(),
         time: "",
         occasion: "",
         mobileNumber: "",
@@ -31,15 +40,6 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
         console.log("Form Data Submitted:", formData);
     };
 
-    const getDate = (monthsToAdd = 0) => {
-        const date = new Date();
-        date.setMonth(date.getMonth() + monthsToAdd);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`;
-    };
-
     const formatPhoneNumberForUI = (value) => {
         // Format the number as +1 123-456-7890 for display
         const formatted = value.replace(
@@ -51,7 +51,7 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form role="form" onSubmit={handleSubmit}>
             <label>
                 <span>First Name</span>
                 <input
