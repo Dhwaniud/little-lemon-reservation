@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BookingForm() {
+function BookingForm({ availableTimes, setAvailableTimes }) {
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -14,6 +14,12 @@ function BookingForm() {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+
+        // On date change, get new list of available times
+        if (name === "date") {
+            setAvailableTimes(value);
+        }
+
         setFormData((prevData) => ({
             ...prevData,
             [name]: type === "checkbox" ? checked : value,
@@ -104,15 +110,19 @@ function BookingForm() {
             </label>
             <label>
                 <span>Time</span>
-                <input
-                    required
-                    type="time"
+                <select
                     name="time"
-                    min="11:00"
-                    max="22:00"
                     value={formData.time}
                     onChange={handleChange}
-                />
+                    required
+                >
+                    <option value="">Select a time</option>
+                    {availableTimes.map((time) => (
+                        <option key={time} value={time}>
+                            {time}
+                        </option>
+                    ))}
+                </select>
             </label>
             <label>
                 <span>Occasion</span>
