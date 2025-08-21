@@ -1,5 +1,6 @@
 import Scooter from "../../assets/scooter.svg";
 import DishIcon from "../../assets/dish-icon.svg";
+import { Link } from "react-router-dom";
 
 function Card({ name, price, description, imgSrc, altText }) {
     return (
@@ -15,7 +16,7 @@ function Card({ name, price, description, imgSrc, altText }) {
                 </h4>
                 <p className="card-description">{description}</p>
                 <h6 className="card-action">
-                    <a href="">Order a delivery</a>
+                    <Link to="/order-online">Order a delivery</Link>
                     <img src={Scooter} alt="Scooter" />
                 </h6>
             </div>
