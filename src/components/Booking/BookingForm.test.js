@@ -5,9 +5,10 @@ import BookingForm from "./BookingForm";
 describe("BookingForm", () => {
     const availableTimes = ["12:00 PM", "1:00 PM", "2:00 PM"];
     const setAvailableTimes = jest.fn();
+    const onSubmit = jest.fn();
 
     it("renders the form fields correctly", () => {
-        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />);
+        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} onSubmit={onSubmit}/>);
 
         expect(screen.getByLabelText(/First Name/i)).toBeInTheDocument();
         expect(screen.getByLabelText(/Last Name/i)).toBeInTheDocument();
@@ -21,7 +22,7 @@ describe("BookingForm", () => {
     });
 
     it("calls setAvailableTimes when the date changes", () => {
-        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />);
+        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} onSubmit={onSubmit}/>);
 
         const dateInput = screen.getByLabelText(/Date/i);
         fireEvent.change(dateInput, { target: { value: "2025-08-25" } });
@@ -30,9 +31,9 @@ describe("BookingForm", () => {
     });
 
     it("displays validation errors for required fields", async () => {
-        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />);
+        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} onSubmit={onSubmit}/>);
 
-        const form = screen.getByRole("form");
+        const form = screen.getByTestId("booking-form");
         const submitButton = screen.getByRole("button", { name: /Reserve/i });
         fireEvent.click(submitButton);
 
@@ -40,7 +41,7 @@ describe("BookingForm", () => {
     });
 
     it("submits the form with valid data", () => {
-        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />);
+        render(<BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} onSubmit={onSubmit}/>);
 
         fireEvent.change(screen.getByLabelText(/First Name/i), { target: { value: "John" } });
         fireEvent.change(screen.getByLabelText(/Last Name/i), { target: { value: "Doe" } });

@@ -63,7 +63,7 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
     };
 
     return (
-        <form role="form" onSubmit={handleSubmit}>
+        <form data-testid="booking-form" onSubmit={handleSubmit}>
             <label>
                 <span>First Name</span>
                 <input
