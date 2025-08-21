@@ -52,6 +52,26 @@ button.btn {
     background: var(--yellow-2);
 }
 
+.btn.btn-submit {
+    background: var(--green);
+    color: var(--yellow-2);
+    opacity: 0.95;
+    align-self: center;
+    width: 100%;
+    max-width: 250px;
+}
+
+.btn.btn-submit:hover,
+.btn.btn-submit:focus {
+    opacity: 1;
+}
+
+.btn.btn-submit:disabled {
+    background: var(--gray-1);
+    color: var(--gray-3);
+    cursor: not-allowed;
+}
+
 .container {
     width: 100%;
     margin-left: auto;

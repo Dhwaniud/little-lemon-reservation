@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const getDate = (monthsToAdd = 0) => {
     const date = new Date();
@@ -20,6 +20,18 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
         occasion: "",
         mobileNumber: "",
     });
+    const [formErrors, setFormErrors] = useState({});
+
+    useEffect(() => {
+        const errors = {};
+        if (!formData.firstName) errors.firstName = "First name is required";
+        if (!formData.lastName) errors.lastName = "Last name is required";
+        if (!formData.numberOfPeople)
+            errors.numberOfPeople = "Number of people is required";
+        if (!formData.date) errors.date = "Date is required";
+        if (!formData.time) errors.time = "Time is required";
+        setFormErrors(errors);
+    }, [formData]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -165,7 +177,11 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                     required
                 />
             </label>
-            <button className="btn btn-primary" type="submit">
+            <button
+                className="btn btn-submit"
+                type="submit"
+                disabled={Object.keys(formErrors).length > 0}
+            >
                 Reserve
             </button>
         </form>
