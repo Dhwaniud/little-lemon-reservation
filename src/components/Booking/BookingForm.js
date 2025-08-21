@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const getDate = (monthsToAdd = 0) => {
     const date = new Date();
@@ -10,6 +11,7 @@ const getDate = (monthsToAdd = 0) => {
 };
 
 function BookingForm({ availableTimes, setAvailableTimes }) {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -37,7 +39,14 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Data Submitted:", formData);
+        if (window.submitAPI(formData)) {
+            navigate("/booking-confirmed", {
+                state: {
+                    name: formData.firstName,
+                    time: formData.date + " " + formData.time,
+                },
+            });
+        }
     };
 
     const formatPhoneNumberForUI = (value) => {
@@ -127,7 +136,6 @@ function BookingForm({ availableTimes, setAvailableTimes }) {
             <label>
                 <span>Occasion</span>
                 <select
-                    required
                     name="occasion"
                     value={formData.occasion}
                     onChange={handleChange}

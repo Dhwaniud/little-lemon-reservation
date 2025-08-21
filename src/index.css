@@ -338,6 +338,25 @@ nav ul li {
     flex: 0.5;
 }
 
+/* Booking confirmed styles */
+.booking-confirmed {
+    background-color: var(--yellow-2);
+    color: var(--green);
+    padding: 4rem 0;
+}
+
+.booking-confirmed .container {
+    align-items: center;
+}
+
+.booking-confirmed h1 {
+    font-size: 2rem;
+}
+
+.booking-confirmed p {
+    text-align: center;
+}
+
 /* Footer styles */
 footer {
     background: var(--gray-2);

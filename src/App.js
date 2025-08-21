@@ -1,5 +1,6 @@
 import "./App.css";
 import BookingPage from "./components/Booking/BookingPage";
+import ConfirmedBooking from "./components/ConfirmedBooking";
 import Home from "./components/Home";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
@@ -9,6 +10,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/booking" element={<BookingPage />} />
+                <Route
+                    path="/booking-confirmed"
+                    element={<ConfirmedBooking />}
+                />
             </Routes>
         </Router>
     );
