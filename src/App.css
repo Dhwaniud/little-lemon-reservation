@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-    height: 40vmin;
+    height: clamp(80px, 20vmin, 260px);
     pointer-events: none;
 }
 
@@ -20,7 +20,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: clamp(14px, 1.6vw, 20px);
     color: white;
 }
 

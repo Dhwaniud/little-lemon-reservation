@@ -399,3 +399,132 @@ footer h4 {
 footer li {
     padding-bottom: 5px;
 }
+
+/* Responsive adjustments */
+/* Use fluid type and layout with sensible breakpoints */
+html {
+    font-size: 16px;
+}
+
+/* Fluid typography for headings */
+h1 {
+    font-size: clamp(1.25rem, 2.2vw + 1rem, 3rem);
+}
+
+/* Make container fluid and stack on small screens */
+.container {
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    .container {
+        max-width: 720px;
+        padding-left: 12px;
+        padding-right: 12px;
+        display: block; /* stack children unless explicit flex used */
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .hero .container {
+        padding: 24px 0;
+    }
+
+    .hero article {
+        max-width: 100%;
+    }
+
+    .hero img {
+        position: static;
+        display: block;
+        margin: 16px auto 0;
+        max-width: 60%;
+        height: auto;
+    }
+
+    .specials section,
+    .testimonials .content,
+    .about .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .review-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .about .image-cascade img {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-bottom: 12px;
+    }
+
+    .reservations form {
+        gap: 0.75rem;
+    }
+
+    .reservations form label {
+        grid-template-columns: 1fr;
+    }
+
+    .reservations form .no-of-people {
+        gap: 0.5rem;
+    }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --base-padding: 10px;
+    }
+
+    body {
+        font-size: 0.95rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .hero p {
+        padding: 16px 0;
+    }
+
+    .card .card-image {
+        height: 160px;
+    }
+
+    .btn {
+        padding: 10px 14px;
+    }
+
+    .btn.btn-submit {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Utility: ensure images are responsive by default */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
