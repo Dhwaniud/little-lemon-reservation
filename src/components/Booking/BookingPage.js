@@ -6,12 +6,12 @@ import Main from "../Main";
 import BookingForm from "./BookingForm";
 import { useNavigate } from "react-router-dom";
 
-const updateTimes = (_, action) => {
+export const updateTimes = (_, action) => {
     const dateObj = new Date(action);
     return window.fetchAPI(dateObj);
 };
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
     const dateObj = new Date();
     return window.fetchAPI(dateObj);
 };
