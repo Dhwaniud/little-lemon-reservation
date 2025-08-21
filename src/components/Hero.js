@@ -1,8 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import FoodPlatter from "../assets/food-platter.jpg";
 
 function Hero() {
     const location = useLocation();
+    const navigate = useNavigate();
 
     return (
         <section className="hero">
@@ -16,7 +17,10 @@ function Hero() {
                         twist.
                     </p>
                     {location.pathname !== "/booking" && (
-                        <button className="btn btn-primary">
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => navigate("/booking")}
+                        >
                             Reserve a Table
                         </button>
                     )}

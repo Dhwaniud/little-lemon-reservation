@@ -3,7 +3,7 @@ import AboutUs2 from "../assets/about-us-2.jpg";
 
 function About() {
     return (
-        <section className="about bg-gray">
+        <section id="about" className="about bg-gray">
             <div className="container">
                 <div className="description">
                     <h1>Little Lemon</h1>
