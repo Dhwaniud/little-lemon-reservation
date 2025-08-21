@@ -4,6 +4,7 @@ import Header from "../Header";
 import Hero from "../Hero";
 import Main from "../Main";
 import BookingForm from "./BookingForm";
+import { useNavigate } from "react-router-dom";
 
 const updateTimes = (_, action) => {
     const dateObj = new Date(action);
@@ -16,11 +17,24 @@ const initializeTimes = () => {
 };
 
 function BookingPage() {
+    const navigate = useNavigate();
+
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
         null,
         initializeTimes
     );
+
+    function submitForm(formData) {
+        if (window.submitAPI(formData)) {
+            navigate("/booking-confirmed", {
+                state: {
+                    name: formData.firstName,
+                    time: formData.date + " " + formData.time,
+                },
+            });
+        }
+    }
 
     return (
         <>
@@ -33,6 +47,7 @@ function BookingPage() {
                         <BookingForm
                             availableTimes={availableTimes}
                             setAvailableTimes={dispatch}
+                            onSubmit={submitForm}
                         />
                     </div>
                 </section>
