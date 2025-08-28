@@ -3,7 +3,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import Hero from "../Hero";
 import Main from "../Main";
-import BookingForm from "./BookingForm3";
+import BookingForm from "./BookingForm";
 import { useNavigate } from "react-router-dom";
 
 export const updateTimes = (_, action) => {
