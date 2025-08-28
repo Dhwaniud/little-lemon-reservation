@@ -30,6 +30,10 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
             errors.numberOfPeople = "Number of people is required";
         if (!formData.date) errors.date = "Date is required";
         if (!formData.time) errors.time = "Time is required";
+        if (!formData.mobileNumber)
+            errors.mobileNumber = "Mobile number is required";
+        else if (formData.mobileNumber.length !== 10)
+            errors.mobileNumber = "Mobile number must be 10 digits";
         setFormErrors(errors);
     }, [formData]);
 
@@ -49,7 +53,9 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(formData);
+        if (Object.keys(formErrors).length === 0) {
+            onSubmit(formData);
+        }
     };
 
     const formatPhoneNumberForUI = (value) => {
@@ -73,6 +79,9 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                     value={formData.firstName}
                     onChange={handleChange}
                 />
+                {formErrors.firstName && (
+                    <span className="error">{formErrors.firstName}</span>
+                )}
             </label>
             <label>
                 <span>Last Name</span>
@@ -158,30 +167,18 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                     onChange={(e) => {
                         const digitsOnly = e.target.value
                             .replace(/\D/g, "")
-                            .slice(-10); // Keep only the last 10 digits
+                            .slice(-10);
                         setFormData((prevData) => ({
                             ...prevData,
                             mobileNumber: digitsOnly,
                         }));
                     }}
-                    onFocus={(e) => {
-                        e.target.value = formData.mobileNumber; // Remove formatting on focus
-                    }}
-                    onBlur={(e) => {
-                        e.target.value = formatPhoneNumberForUI(
-                            formData.mobileNumber
-                        ); // Apply formatting on blur
-                    }}
-                    placeholder="+1 123-456-7890"
-                    pattern="\d{10}" /* Matches 10-digit numbers */
+                    //placeholder="1234567890"
+                    pattern="\d{10}"
                     required
                 />
             </label>
-            <button
-                className="btn btn-submit"
-                type="submit"
-                disabled={Object.keys(formErrors).length > 0}
-            >
+            <button className="btn btn-submit" type="submit">
                 Reserve
             </button>
         </form>
