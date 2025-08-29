@@ -44,37 +44,41 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
         >
             {({ setFieldValue }) => (
                 <Form data-testid="booking-form">
-                    <label htmlFor="firstName">First Name</label>
+                    <label htmlFor="firstName" aria-label="First Name label">First Name</label>
                     <div>
                         <Field
                             id="firstName"
                             name="firstName"
                             type="text"
                             required
+                            aria-label="First Name input"
                         />
                         <ErrorMessage
                             name="firstName"
                             component="span"
                             className="error"
+                            aria-label="First Name error"
                         />
                     </div>
 
-                    <label htmlFor="lastName">Last Name</label>
+                    <label htmlFor="lastName" aria-label="Last Name label">Last Name</label>
                     <div>
                         <Field
                             id="lastName"
                             name="lastName"
                             type="text"
                             required
+                            aria-label="Last Name input"
                         />
                         <ErrorMessage
                             name="lastName"
                             component="span"
                             className="error"
+                            aria-label="Last Name error"
                         />
                     </div>
 
-                    <label htmlFor="numberOfPeople"># of people</label>
+                    <label htmlFor="numberOfPeople" aria-label="Number of people label"># of people</label>
                     <div>
                         <div className="no-of-people">
                             <Field
@@ -84,22 +88,24 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                                 min={1}
                                 max={10}
                                 required
+                                aria-label="Number of people input"
                             />
-                            <span>Maximum - 10</span>
+                            <span aria-label="Maximum number of people is 10">Maximum - 10</span>
                         </div>
                         <ErrorMessage
                             name="numberOfPeople"
                             component="span"
                             className="error"
+                            aria-label="Number of people error"
                         />
                     </div>
 
-                    <label htmlFor="childSeat">
+                    <label htmlFor="childSeat" aria-label="Child seat label">
                         Please check this box if you need a child seat
                     </label>
-                    <Field id="childSeat" name="childSeat" type="checkbox" />
+                    <Field id="childSeat" name="childSeat" type="checkbox" aria-label="Need a child seat checkbox" />
 
-                    <label htmlFor="date">Date</label>
+                    <label htmlFor="date" aria-label="Date label">Date</label>
                     <div>
                         <Field
                             id="date"
@@ -108,6 +114,7 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                             min={getDate()}
                             max={getDate(6)}
                             required
+                            aria-label="Date input"
                             onChange={(e) => {
                                 setFieldValue("date", e.target.value);
                                 setAvailableTimes &&
@@ -118,12 +125,13 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                             name="date"
                             component="span"
                             className="error"
+                            aria-label="Date error"
                         />
                     </div>
 
-                    <label htmlFor="time">Time</label>
+                    <label htmlFor="time" aria-label="Time label">Time</label>
                     <div>
-                        <Field id="time" as="select" name="time" required>
+                        <Field id="time" as="select" name="time" required aria-label="Time select">
                             <option value="">Select a time</option>
                             {availableTimes &&
                                 availableTimes.map((time) => (
@@ -136,18 +144,19 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                             name="time"
                             component="span"
                             className="error"
+                            aria-label="Time error"
                         />
                     </div>
 
-                    <label htmlFor="occasion">Occasion</label>
-                    <Field id="occasion" as="select" name="occasion">
+                    <label htmlFor="occasion" aria-label="Occasion label">Occasion</label>
+                    <Field id="occasion" as="select" name="occasion" aria-label="Occasion select">
                         <option value="">Select an occasion</option>
                         <option value="birthday">Birthday</option>
                         <option value="engagement">Engagement</option>
                         <option value="anniversary">Anniversary</option>
                     </Field>
 
-                    <label htmlFor="mobileNumber">Contact Information</label>
+                    <label htmlFor="mobileNumber" aria-label="Contact Information label">Contact Information</label>
                     <div>
                         <Field
                             id="mobileNumber"
@@ -156,6 +165,7 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                             required
                             pattern="\d{10}"
                             placeholder="1234567890"
+                            aria-label="Mobile number input"
                             onChange={(e) => {
                                 const digitsOnly = e.target.value
                                     .replace(/\D/g, "")
@@ -167,10 +177,11 @@ function BookingForm({ availableTimes, setAvailableTimes, onSubmit }) {
                             name="mobileNumber"
                             component="span"
                             className="error"
+                            aria-label="Mobile number error"
                         />
                     </div>
 
-                    <button className="btn btn-submit" type="submit">
+                    <button aria-label="Submit reservation form button" className="btn btn-submit" type="submit">
                         Reserve
                     </button>
                 </Form>
