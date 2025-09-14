@@ -1,8 +1,15 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import Hamburger from '../assets/hamburger.svg';
 
 function Nav() {
+    const [open, setOpen] = useState(false);
+
     return <nav>
-        <ul>
+        <div className="navbar-hamburger" onClick={() => setOpen(!open)}>
+            <img src={Hamburger} alt="Menu" />
+        </div>
+        <ul className={`navbar-links ${open ? 'active' : ''}`}>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/#about'>About</Link></li>
             <li><Link to='/menu'>Menu</Link></li>
