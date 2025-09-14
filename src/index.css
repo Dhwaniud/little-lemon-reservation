@@ -8,11 +8,19 @@
     --gray-3: #333;
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     margin: 0;
     font-family: "Karla", "Times New Roman";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    overflow-x: hidden;
 }
 
 h1,
@@ -80,6 +88,7 @@ button.btn {
     padding-right: 15px;
     max-width: 900px;
     display: flex;
+    box-sizing: border-box;
 }
 
 .container.column {
@@ -92,6 +101,8 @@ button.btn {
 
 nav ul {
     display: inline-flex;
+    margin: 0;
+    padding: 1em 0;
 }
 
 nav ul li {
@@ -160,7 +171,7 @@ nav ul li {
 .specials section {
     display: flex;
     justify-content: space-between;
-    margin: 2rem 0;
+    padding: 2rem 0;
 }
 
 /* Card styles */
@@ -414,20 +425,9 @@ footer li {
     padding-bottom: 5px;
 }
 
-/* Responsive adjustments */
-/* Use fluid type and layout with sensible breakpoints */
-html {
-    font-size: 16px;
-}
-
 /* Fluid typography for headings */
 h1 {
     font-size: clamp(1.25rem, 2.2vw + 1rem, 3rem);
-}
-
-/* Make container fluid and stack on small screens */
-.container {
-    box-sizing: border-box;
 }
 
 @media (max-width: 900px) {
@@ -445,8 +445,12 @@ h1 {
         justify-content: center;
     }
 
+    header img {
+        padding: 0.5rem 0;
+    }
+
     .hero .container {
-        padding: 24px 0;
+        padding: 32px 16px;
     }
 
     .hero article {
@@ -476,6 +480,7 @@ h1 {
     .review-card {
         width: 100%;
         height: auto;
+        box-sizing: border-box;
     }
 
     .about .image-cascade img {
@@ -498,23 +503,24 @@ h1 {
     }
 
     footer .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .booking-confirmed .container {
+        display: flex;
     }
 }
 
 @media (max-width: 480px) {
-    :root {
-        --base-padding: 10px;
-    }
-
-    body {
-        font-size: 0.95rem;
+    .hero .container {
+        padding: 32px 8px;
     }
 
     .hero h1 {
-        font-size: clamp(1.5rem, 4vw, 2rem);
+        font-size: clamp(2rem, 4vw, 2.5rem);
     }
 
     .hero p {
